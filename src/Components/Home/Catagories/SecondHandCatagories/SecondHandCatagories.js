@@ -8,7 +8,7 @@ const SecondHandCatagories = ({ catagory }) => {
     console.log(user)
     return (
         <div className="card my-10 w-96 shadow-xl">
-            <figure><img src={img} alt="Shoes" /></figure>
+            <figure><img src={img} alt="" /></figure>
             <div className="card-body">
                 <div className='flex gap-2'>
                     <img className='rounded-full w-10' src={user.photoURL} alt="" />
@@ -21,7 +21,7 @@ const SecondHandCatagories = ({ catagory }) => {
                 <p>Used: {use} Years</p>
 
                 <div className="card-actions justify-end">
-                    <button className="btn btn-primary">Book Now</button>
+                <label htmlFor="booking-modal" className="btn btn-primary">Book now</label>
                 </div>
             </div>
         </div>

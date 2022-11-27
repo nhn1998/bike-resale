@@ -1,5 +1,6 @@
 import React from 'react';
 import { useLoaderData } from 'react-router-dom';
+import BookingModal from '../SecondHandCatagories/BookingModal/BookingModal';
 import SecondHandCatagories from '../SecondHandCatagories/SecondHandCatagories';
 
 const CatagoryDetails = () => {
@@ -13,6 +14,7 @@ const CatagoryDetails = () => {
                     catagories && catagories.map(catagory=><SecondHandCatagories key={catagory._id} catagory={catagory}></SecondHandCatagories>)
                 }
             </div>
+            <BookingModal></BookingModal>
         </div>
     );
 };
