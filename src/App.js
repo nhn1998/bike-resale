@@ -6,6 +6,7 @@ import Home from './Components/Home/Home';
 import CatagoryDetails from './Components/Home/Catagories/CatagoryDetails/CatagoryDetails';
 import SignUp from './Components/SignUp/SignUp';
 import Login from './Components/SignIn/SignIn';
+import PrivateRoute from './Components/PrivateRoute/PrivateRoute';
 
 function App() {
   const router = createBrowserRouter([
@@ -27,14 +28,14 @@ function App() {
         },
         {
           path:'/catagories/:id',
-          loaders:({params})=>fetch(`http://localhost:5000/catagories/${params.id}`),
-          element:<CatagoryDetails></CatagoryDetails>
+          loader:({params})=>fetch(` https://assaingment-twelve-server-nhn1998.vercel.app/catagories/${params.id}`),
+          element:<PrivateRoute><CatagoryDetails></CatagoryDetails></PrivateRoute>
         }
       ]
     }
   ])
   return (
-    <div className="App">
+    <div className="">
       <RouterProvider router={router}></RouterProvider>
     </div>
   );

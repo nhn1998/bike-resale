@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 // import { authContext } from '../AuthProvider/AuthProvider';
-// import logo from '../Header/logo.png'
+import logo from '../Navbar/logo.jpg'
 import { FaSignOutAlt } from "react-icons/fa";
 import { authContext } from '../Auth/AuthProvider';
 
@@ -43,10 +43,10 @@ const Header = () => {
                 </div>
                 <div className="avatar">
                     <div className="w-20 rounded-full">
-                        <img alt="" />
+                        <img src={logo} alt="" />
                     </div>
                 </div>
-                <Link to='/' className="btn btn-ghost normal-case text-xl italic">Bike Resell</Link>
+                <Link to='/' className="btn btn-ghost normal-case text-xl italic">Bike Resale</Link>
             </div>
             <div className="navbar-center hidden lg:flex">
                 <ul className="menu menu-horizontal p-0">

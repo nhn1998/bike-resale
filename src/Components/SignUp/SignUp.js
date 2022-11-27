@@ -18,9 +18,9 @@ const SignUp = () => {
             console.log(user)
             
             HandleUpdateUserProfile(name,photoUrl)
-            .then(()=>{})
+            .then(()=>{form.reset()})
             .catch(err=>console.log(err))
-            form.reset()
+            
         })
         .catch(err=>console.log(err))
     };
