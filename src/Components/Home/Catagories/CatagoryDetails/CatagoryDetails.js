@@ -16,7 +16,7 @@ const CatagoryDetails = () => {
             </div>
             {
                 bikeBooking &&
-                <BookingModal bikeBooking={bikeBooking}></BookingModal>
+                <BookingModal setBikeBooking={setBikeBooking} bikeBooking={bikeBooking}></BookingModal>
             }
         </div>
     );

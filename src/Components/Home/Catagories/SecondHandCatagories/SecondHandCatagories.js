@@ -16,8 +16,8 @@ const SecondHandCatagories = ({ catagory,setBikeBooking }) => {
                 </div>
                 <h2 className="card-title">{name}</h2>
                 <p className='flex font-bold'> <FaLocationArrow></FaLocationArrow>Loaction: {location}</p>
-                <p>Asking Price: {resellPrice}</p>
-                <p>Market Price: {originalPrice}</p>
+                <p>Asking Price: {resellPrice} tk</p>
+                <p>Market Price: {originalPrice} tk</p>
                 <p>Used: {use} Years</p>
 
                 <div className="card-actions justify-end">
