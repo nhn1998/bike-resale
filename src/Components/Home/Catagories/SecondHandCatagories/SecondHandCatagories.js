@@ -2,7 +2,7 @@ import React, { useContext } from 'react';
 import { FaLocationArrow } from 'react-icons/fa';
 import { authContext } from '../../../Auth/AuthProvider';
 
-const SecondHandCatagories = ({ catagory }) => {
+const SecondHandCatagories = ({ catagory,setBikeBooking }) => {
     const { name, img, use, resellPrice, originalPrice, location } = catagory
     const { user } = useContext(authContext)
     console.log(user)
@@ -21,7 +21,7 @@ const SecondHandCatagories = ({ catagory }) => {
                 <p>Used: {use} Years</p>
 
                 <div className="card-actions justify-end">
-                <label htmlFor="booking-modal" className="btn btn-primary">Book now</label>
+                <label onClick={()=>setBikeBooking(catagory)} htmlFor="booking-modal" className="btn btn-primary">Book now</label>
                 </div>
             </div>
         </div>
