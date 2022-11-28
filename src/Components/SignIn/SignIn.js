@@ -71,8 +71,8 @@ const Login = () => {
         <p className='mt-5'>Don't have an account?<Link to='/signup' className='font-bold'>Register</Link></p>
         
       </form>
-      <div>
-        <button onClick={HandleGoogleLogin} className="btn btn-wide mb-5 ml-14"><FaGooglePlus size={20} className='mr-3'></FaGooglePlus> Sign In with Google</button>
+      <div className='grid content-center'>
+        <button onClick={HandleGoogleLogin} className="btn"><FaGooglePlus size={20} className='mr-3'></FaGooglePlus> Sign In with Google</button>
         </div>
     </div>
   </div>

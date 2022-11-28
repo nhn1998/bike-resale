@@ -9,6 +9,8 @@ import Login from './Components/SignIn/SignIn';
 import PrivateRoute from './Components/PrivateRoute/PrivateRoute';
 import Blogs from './Components/Blogs/Blogs';
 import NotFoundPage from './Components/NotFoundPage/NotFoundPage';
+import Dashboard from './Components/Dashboard/Dashboard';
+import DashboardContent from './Components/Dashboard/DashboardContent/DashboardContent';
 
 function App() {
   const router = createBrowserRouter([
@@ -41,6 +43,16 @@ function App() {
           path:'/*',
           element:<NotFoundPage></NotFoundPage>
         },
+      ]
+    },
+    {
+      path:'/dashboard',
+      element:<PrivateRoute><Dashboard></Dashboard></PrivateRoute>,
+      children:[
+        {
+         path:'/dashboard',
+         element:<DashboardContent></DashboardContent>
+        }
       ]
     }
   ])

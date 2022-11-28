@@ -5,7 +5,6 @@ import { authContext } from '../../../Auth/AuthProvider';
 const SecondHandCatagories = ({ catagory,setBikeBooking }) => {
     const { name, img, use, resellPrice, originalPrice, location } = catagory
     const { user } = useContext(authContext)
-    console.log(user)
     return (
         <div className="card my-10 w-96 shadow-xl">
             <figure><img src={img} alt="" /></figure>
