@@ -1,12 +1,15 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import toast from 'react-hot-toast';
 import { useNavigate } from 'react-router-dom';
+import { authContext } from '../../Auth/AuthProvider';
 
 const AddProducts = () => {
+    const {user}=useContext(authContext)
     const navigate=useNavigate();
     const HandleSubmitProducts=(event)=>{
         event.preventDefault();
         const form = event.target;
+        const email=form.email.value;
         const productName=form.productName.value;
         const phoneNumber =form.phoneNumber.value;
         const price = form.price.value;
@@ -16,7 +19,9 @@ const AddProducts = () => {
         const description=form.description.value;
         const condition = form.condition.value;
 
+
         const details = {
+            email,
             productName,
             phoneNumber,
             price,
@@ -49,6 +54,12 @@ const AddProducts = () => {
         <form onSubmit={HandleSubmitProducts} className='bg-blue-100'>
             <div className='mt-20 ml-6'>
                 <div className='lg:flex gap-20'>
+                <div className="form-control w-full max-w-xs">
+                    <label className="label">
+                        <span className="label-text">Your Name</span>
+                    </label>
+                    <input name='email' type="text" placeholder="Type here" className="input input-bordered w-full max-w-xs" value={user?.email} disabled/>
+                </div>
                 <div className="form-control w-full max-w-xs">
                     <label className="label">
                         <span className="label-text">Product Name</span>
