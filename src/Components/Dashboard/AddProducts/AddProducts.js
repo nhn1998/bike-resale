@@ -1,6 +1,9 @@
 import React from 'react';
+import toast from 'react-hot-toast';
+import { useNavigate } from 'react-router-dom';
 
 const AddProducts = () => {
+    const navigate=useNavigate();
     const HandleSubmitProducts=(event)=>{
         event.preventDefault();
         const form = event.target;
@@ -24,6 +27,22 @@ const AddProducts = () => {
             condition
         }
         console.log(details)
+        fetch('https://assaingment-twelve-server-nhn1998.vercel.app/addProducts',{
+            method:'POST',
+            headers:{
+                'content-type':'application/json'
+            },
+            body:JSON.stringify(details)
+        })
+        .then(res=>res.json())
+        .then(data=>{
+            
+            if(data.acknowledged){
+                console.log(data)
+                navigate('/dashboard/myProducts')
+                toast.success('Your Product added successfully')
+            }
+        })
 
     }
     return (
@@ -62,7 +81,11 @@ const AddProducts = () => {
                     <label className="label">
                         <span className="label-text">Category</span>
                     </label>
-                    <input name='category' type="text" placeholder="Type here" className="input input-bordered w-full max-w-xs" />
+                    <select className='input-bordered' name="category">
+              <option>Yamaha</option>
+              <option>Suzuki</option>
+              <option>Bajaj</option>
+            </select>
                 </div>
                 <div className="form-control w-full max-w-xs">
                     <label className="label">
@@ -72,11 +95,11 @@ const AddProducts = () => {
                 </div>
                 </div>
 
-                <label for="message" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Description</label>
-                <textarea name='description' id="message" rows="4" class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Description"></textarea>
+                <label className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Description</label>
+                <textarea name='description' id="message" rows="4" className="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Description"></textarea>
 
-                <label for="message" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Condition</label>
-                <textarea name='condition' id="message" rows="4" class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="your bike condition"></textarea>
+                <label className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Condition</label>
+                <textarea name='condition' id="message" rows="4" className="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="your bike condition"></textarea>
 
             </div>
             <div className='grid content-center'>
