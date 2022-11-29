@@ -6,9 +6,9 @@ import useAdmin from '../Hooks/UseAdmin';
 import useBuyers from '../Hooks/UseBuyers/UseBuyers';
 import Navbar from '../Navbar/Navbar';
 const Dashboard = () => {
-    const {user}=useContext(authContext);
-    const [isAdmin]=useAdmin(user?.email);
-    const [isBuyers]=useBuyers(user?.email)
+    const { user } = useContext(authContext);
+    const [isAdmin] = useAdmin(user?.email);
+    const [isBuyers] = useBuyers(user?.email);
     return (
         <div>
             <Navbar></Navbar>
@@ -23,18 +23,24 @@ const Dashboard = () => {
 
                         {
                             isAdmin ?
-                            <>
-                        <li><Link to='/dashboard/allsellers'>All sellers</Link></li>
-                        <li><Link to='/dashboard/allbuyers'>All buyers</Link></li>
-                        <li><Link to='/dashboard/reportedItems'>Reported Items</Link></li>
-                        </>:
-                        <><li><Link to='/dashboard/addProducts'>Add a Products</Link></li>
-                        <li><Link to='/dashboard/myProducts'>My Products</Link></li>
-                        <li><Link to='/dashboard/myOrders'>My Orders</Link></li>
-                        
-                        </>
+                                <>
+                                    <li><Link to='/dashboard/allsellers'>All sellers</Link></li>
+                                    <li><Link to='/dashboard/allbuyers'>All buyers</Link></li>
+                                    <li><Link to='/dashboard/reportedItems'>Reported Items</Link></li>
+                                </> :
+                                <>
+                                    {isBuyers ?
+                                        <>
+                                        <li><Link to='/dashboard/myOrders'>My Orders</Link></li>
+                                        </> :
+                                        <>
+                                        <li><Link to='/dashboard/addProducts'>Add a Products</Link></li>
+                                        <li><Link to='/dashboard/myProducts'>My Products</Link></li></>
+                                    }
+
+                                </>
                         }
-                        
+
                     </ul>
 
                 </div>
