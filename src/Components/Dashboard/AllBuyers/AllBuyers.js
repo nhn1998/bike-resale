@@ -1,5 +1,6 @@
 import { useQuery } from '@tanstack/react-query';
 import React, { useState } from 'react';
+import toast from 'react-hot-toast';
 
 const AllBuyers = () => {
     // const [buyersRoles,setBuyersRoles]=useState('')
@@ -23,6 +24,7 @@ const AllBuyers = () => {
             .then(data=>{
                 console.log(data)
                 refetch()
+                toast.success('item deleted successfully')
             })
         }
     }
