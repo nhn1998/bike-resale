@@ -2,6 +2,7 @@ import { useEffect, useState } from "react"
 
 const useBuyers = email =>{
     const [isBuyers,setIsBuyers]=useState(false)
+    const [isBuyersLoading,setIsBuyersLoading]=useState(true)
     useEffect(()=>{
         if(email){
             fetch(`https://assaingment-twelve-server-nhn1998.vercel.app/users/Buyers/${email}`)
@@ -9,10 +10,11 @@ const useBuyers = email =>{
             .then(data=>{
                 console.log(data)
                 setIsBuyers(data.isBuyers)
+                setIsBuyersLoading(false)
             })
         }
 
     },[email])
-    return [isBuyers]
+    return [isBuyers,isBuyersLoading]
 }
 export default useBuyers;

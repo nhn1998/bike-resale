@@ -9,6 +9,7 @@ const Dashboard = () => {
     const { user } = useContext(authContext);
     const [isAdmin] = useAdmin(user?.email);
     const [isBuyers] = useBuyers(user?.email);
+    const [isSellers]=useBuyers(user?.email)
     return (
         <div>
             <Navbar></Navbar>
@@ -37,8 +38,8 @@ const Dashboard = () => {
                                         <li><Link to='/dashboard/addProducts'>Add a Products</Link></li>
                                         <li><Link to='/dashboard/myProducts'>My Products</Link></li></>
                                     }
-
                                 </>
+
                         }
 
                     </ul>

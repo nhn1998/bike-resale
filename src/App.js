@@ -18,6 +18,8 @@ import AddProducts from './Components/Dashboard/AddProducts/AddProducts'
 import MyProducts from './Components/Dashboard/MyProducts/MyProducts'
 import MyOrders from './Components/Dashboard/MyOrders/MyOrders';
 import AdminRoute from './Components/AdminRoutes/AdminRoutes';
+import BuyerRoutes from './Components/BuyerRoutes/BuyerRoutes'
+import SellersRoute from './Components/SellersRoute/SellersRoute';
 
 function App() {
   const router = createBrowserRouter([
@@ -82,7 +84,7 @@ function App() {
         },
         {
           path:'/dashboard/myOrders',
-          element:<MyOrders></MyOrders>
+          element:<BuyerRoutes><MyOrders></MyOrders></BuyerRoutes>
         }
       ]
     }
