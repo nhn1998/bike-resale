@@ -13,16 +13,18 @@ const SignUp = () => {
     const photoUrl = form.photoUrl.value;
     const email = form.email.value;
     const password = form.password.value;
+    const options= form.options.value;
+    console.log(options)
 
     register(email, password)
       .then(result => {
         const user = result.user;
         console.log(user)
-        saveUser(name,email)
+        saveUser(name, email,options)
 
         HandleUpdateUserProfile(name, photoUrl)
           .then(() => {
-            form.reset()
+            
           })
           .catch(err => console.log(err))
 
@@ -36,24 +38,24 @@ const SignUp = () => {
     }
     updateUserProfile(profile)
   }
-  const saveUser = (name,email) => {
-    const user = {name,email}
-    fetch('https://assaingment-twelve-server-nhn1998.vercel.app/users',{
-      method:'POST',
-      headers:{
-        'content-type':'application/json'
+  const saveUser = (name, email,role) => {
+    const user = { name, email,role }
+    fetch('https://assaingment-twelve-server-nhn1998.vercel.app/users', {
+      method: 'POST',
+      headers: {
+        'content-type': 'application/json'
       },
-      body:JSON.stringify(user)
+      body: JSON.stringify(user)
     })
-    .then(res=>res.json())
-    .then(data=>{
-      console.log(data)
-      if(data.acknowledged){
-        navigate('/')
-        toast.success('user created successfully')
-      }
-            
-    })
+      .then(res => res.json())
+      .then(data => {
+        console.log(data)
+        if (data.acknowledged) {
+          navigate('/')
+          toast.success('user created successfully')
+        }
+
+      })
   }
   return (
     <div className="hero min-h-screen bg-base-200 pt-20">
@@ -89,6 +91,10 @@ const SignUp = () => {
               </label>
               <input type="password" name='password' placeholder="password" className="input input-bordered" required />
             </div>
+            <select className='input-bordered' name="options">
+              <option>Buyers</option>
+              <option>Sellers</option>
+            </select>
             <div className="form-control mt-6">
               <button className="btn btn-primary">Register</button>
             </div>

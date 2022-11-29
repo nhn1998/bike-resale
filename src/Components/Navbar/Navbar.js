@@ -23,15 +23,17 @@ const Header = () => {
                         {
                             user?.email ?
                                 <><li><Link to='/'>Home</Link></li>
+                                <li><Link to='/blog'>Blogs</Link></li>
                                     <li tabIndex={0}>
                                         <Link to='/about' className="justify-between">
                                             About us
                                         </Link>
                                     </li>
+                                    
                                     <li><Link to='/dashboard'>Dashboard</Link></li>
-                                    <li><Link to='/blog'>Blogs</Link></li>
+                                    
                                     <div className='mr-4 block'>
-                                        <img className="w-20 rounded-full mr-4" src={user?.photoURL} alt="" />
+                                        <img className="rounded-full mr-4" src={user?.photoURL} alt="" />
                                         <p className='font-bold'>{user?.displayName}</p>
                                     </div>
                                 </> :
@@ -58,14 +60,15 @@ const Header = () => {
                     {
                         user?.email ?
                             <><li><Link to='/'>Home</Link></li>
-
+                                <li><Link to='blog'>Blogs</Link></li>
                                 <li tabIndex={0}>
                                     <Link to='/about' className="justify-between">
                                         About us
                                     </Link>
                                 </li>
+                                
                                 <li><Link to='/dashboard'>Dashboard</Link></li>
-                                <li><Link to='blog'>Blogs</Link></li></> :
+                                </> :
                             <><li><Link to='/'>Home</Link></li>
                                 <li tabIndex={0}>
                                     <Link to='/about' className="justify-between">
